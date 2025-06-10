@@ -15,6 +15,7 @@ global with sharing class ConfluenceWebhookAPI {
             String spaceKey = (String) ((Map<String, Object>) content.get('space')).get('key');
             String pageContent = (String) content.get('pageContent');
             Confluence_Event__c eventRecord;
+            
 
             // Try to find an existing record for this Page ID and Space Key
             List<Confluence_Event__c> existingRecords = [
