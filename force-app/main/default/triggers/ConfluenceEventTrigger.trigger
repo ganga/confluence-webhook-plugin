@@ -1,5 +1,7 @@
 trigger ConfluenceEventTrigger on Confluence_Event__c (after insert, after update) {
     for (Confluence_Event__c e : Trigger.new) {
+        System.debug('Page ID: ' + e.Confluence_Page_ID__c);
+        System.debug('Trigger fired at ' + DateTime.now());
         Boolean isNew = Trigger.isInsert;
         Boolean isUpdated = Trigger.isUpdate && 
             (e.Confluence_Page_ID__c != Trigger.oldMap.get(e.Id).Confluence_Page_ID__c || 

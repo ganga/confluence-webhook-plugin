@@ -13,7 +13,7 @@ global with sharing class ConfluenceWebhookAPI {
             String title = (String) content.get('title');
             String pageId = (String) content.get('id');
             String spaceKey = (String) ((Map<String, Object>) content.get('space')).get('key');
-            String pageContent = (String) content.get('pageContent');
+           // String pageContent = (String) content.get('pageContent');
             Confluence_Event__c eventRecord;
             
 
@@ -36,7 +36,7 @@ global with sharing class ConfluenceWebhookAPI {
             eventRecord.Page_Title__c = title;
             eventRecord.Space_Key__c = spaceKey;
             eventRecord.Raw_JSON__c = body;
-            eventRecord.Page_Content__c = pageContent;
+           // eventRecord.Page_Content__c = pageContent;
             upsert eventRecord;
             
         } catch (Exception e) {

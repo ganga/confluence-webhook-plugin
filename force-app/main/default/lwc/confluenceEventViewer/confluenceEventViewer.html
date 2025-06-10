@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title={pageTitle} icon-name="custom:custom63">
+        <template if:true={hasError}>
+            <p class="slds-p-around_medium slds-text-color_error">Error loading page content.</p>
+        </template>
+
+        <template if:true={pageContent}>
+            <div class="slds-p-around_medium">
+                <div class="confluence-html" lwc:dom="manual"></div>
+            </div>
+        </template>
+
+        <template if:false={pageContent}>
+            <p class="slds-p-around_medium">No content available.</p>
+        </template>
+    </lightning-card>
+</template>
