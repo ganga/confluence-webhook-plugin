@@ -21,10 +21,11 @@ global with sharing class ConfluenceWebhookAPI {
                 WHERE External_Confluence_Key__c = :compositeKey
                 LIMIT 1
             ];
+            Confluence_Event__c eventRecord;
 
             if (!existingRecords.isEmpty()) {
                 System.debug('existing record id: ' + existingRecords[0].Id);
-                Confluence_Event__c eventRecord = existingRecords[0];
+                eventRecord = existingRecords[0];
                 eventRecord.Event_Type__c = eventType;
                 eventRecord.Page_Title__c = title;
                 eventRecord.Raw_JSON__c = body;
