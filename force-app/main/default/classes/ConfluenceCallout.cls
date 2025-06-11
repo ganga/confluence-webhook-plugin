@@ -8,7 +8,7 @@ public class ConfluenceCallout implements Queueable, Database.AllowsCallouts {
     }
 
     public void execute(QueueableContext context) {
-        String html = ConfluenceAPI.getPageHTML(pageId); // Make sure ConfluenceAPI is defined
+        String html = ConfluenceAPI.getPageHTML(pageId); 
 
         if (html != null) {
             Confluence_Event__c updateRec = new Confluence_Event__c(Id = recordId);
