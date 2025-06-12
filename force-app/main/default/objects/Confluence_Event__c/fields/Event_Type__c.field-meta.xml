@@ -19,6 +19,11 @@
                 <default>false</default>
                 <label>page_updated</label>
             </value>
+            <value>
+                <fullName>page_removed</fullName>
+                <default>false</default>
+                <label>page_removed</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

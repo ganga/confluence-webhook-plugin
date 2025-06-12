@@ -4,10 +4,9 @@ trigger ConfluenceEventTrigger on Confluence_Event__c (after insert, after updat
         System.debug('Trigger fired at ' + DateTime.now());
         Boolean isNew = Trigger.isInsert;
         Boolean isUpdated = Trigger.isUpdate && 
-            (e.Confluence_Page_ID__c != Trigger.oldMap.get(e.Id).Confluence_Page_ID__c || 
-             e.Page_Content__c == null);
-
+            (e.Modified_Date__c != Trigger.oldMap.get(e.Id).Modified_Date__c);
         if ((isNew || isUpdated) && e.Confluence_Page_ID__c != null) {
+            System.debug('Trigger calling cllout ' +e.Id + ' ' + e.Confluence_Page_ID__c);
             ConfluenceCallout.fetchHTMLAsync(e.Id, e.Confluence_Page_ID__c);
         }
     }
